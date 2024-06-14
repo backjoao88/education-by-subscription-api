@@ -1,0 +1,2 @@
+﻿GET http://localhost:5218/api/plans/375191e5-2171-4ceb-88bd-882e3d90c42b
+Accept: application/json

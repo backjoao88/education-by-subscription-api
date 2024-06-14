@@ -1,0 +1,8 @@
+﻿POST http://localhost:8080/api/plans
+Content-Type: application/json
+
+{
+  "title": "Gold Patron",
+  "description": "You will get early access to my upcoming videos. You will also get access to all the source code used in my existing and future videos. Last but not least, you will get exclusive discounts on all of my paid courses. Thank you very much for your support!",
+  "basePrice": 57.50
+}

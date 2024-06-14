@@ -1,0 +1,8 @@
+﻿POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+  "name": "Compiladores",
+  "description": "Curso básico de compiladores que contempla conceitos como o de expressões regulares, árvores AST, análise semântica e linguagem de montagem."
+}
+

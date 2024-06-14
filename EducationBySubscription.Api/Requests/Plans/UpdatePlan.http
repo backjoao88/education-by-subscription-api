@@ -1,0 +1,10 @@
+﻿PUT http://localhost:8080/api/plans/60971207-cf43-48da-abee-fa1619625c69
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "60971207-cf43-48da-abee-fa1619625c69",
+  "title": "Starter Pack",
+  "description": "You will get access to all the source code used in my existing and future videos. You will also get exclusive discounts on all of my paid courses. Thank you very much for your support!",
+  "basePrice": 35
+}

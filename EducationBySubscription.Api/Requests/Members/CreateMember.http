@@ -1,0 +1,9 @@
+﻿POST http://localhost:8080/api/members
+Content-Type: application/json
+
+{
+  "firstName": "marcos",
+  "lastName": "weiss",
+  "email": "marcos@mail.com",
+  "documentNumber": "11154328937"
+}

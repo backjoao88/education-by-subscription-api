@@ -1,0 +1,7 @@
+﻿POST http://localhost:8080/api/courses/397bdb77-5d42-4961-aafc-bde93acf6922/lessons
+Content-Type: application/json
+
+{
+  "name": "Exerícios sobre algoritmos",
+  "description": "Aula prática de fixação sobre teorias aprendidas em aula anterior."
+}

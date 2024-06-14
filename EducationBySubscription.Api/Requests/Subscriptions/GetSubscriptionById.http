@@ -1,0 +1,2 @@
+﻿GET http://localhost:5218/api/subscriptions/d00f86de-5975-4a95-bce8-6ecab9c6c21d
+Accept: application/json

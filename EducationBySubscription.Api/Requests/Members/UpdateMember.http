@@ -1,0 +1,10 @@
+﻿PUT http://localhost:8080/api/members/48abfc54-5ec7-467f-9487-5e71737f9384
+Content-Type: application/json
+Accept: application/json
+
+{
+  "firstName": "marcos",
+  "lastName": "weiss",
+  "documentNumber": "1",
+  "email": "marcos@gmail.com"
+}

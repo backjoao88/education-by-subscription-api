@@ -1,0 +1,2 @@
+﻿DELETE http://localhost:5218/api/courses/123
+Content-Type: application/json

@@ -1,0 +1,26 @@
+﻿name: build and deploy to app service
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out repository
+        uses: actions/checkout@master
+      - name: Performing dotnet setup
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' 
+      - name: Cleaning the project
+        run: dotnet clean
+      - name: Building the project
+        run: dotnet build -c Release
+      - name: Publishing the project
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/app
+      - name: Uploading build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/app

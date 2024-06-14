@@ -1,0 +1,7 @@
+﻿POST http://localhost:8080/api/subscriptions
+Content-Type: application/json
+
+{
+  "idPlan": "60971207-cf43-48da-abee-fa1619625c69",
+  "idMember": "48abfc54-5ec7-467f-9487-5e71737f9384"
+}

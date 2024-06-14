@@ -12,7 +12,7 @@
 - [x] O sistema deve ser capaz de cadastrar registros de pagamentos locais (apenas por meio do evento de assinatura criada);
 - [x] O sistema não deve permitir o acesso de membros à cursos não autorizados (por meio da assinatura atual);
 - [x] O sistema deve ser capaz de permitir ao usuário escolher uma assinatura dentre as disponíveis;
-- [ ] O sistema deve ser capaz de receber o evento de pagamentos confirmados e processá-lo internamente;
+- [x] O sistema deve ser capaz de receber o evento de pagamentos confirmados e processá-lo internamente;
 
 ## Checklist
 
@@ -22,4 +22,4 @@
 - [x] Usar pelo menos um evento de domínio;
 - [x] Utilizar o Outbox Pattern;
 - [x] Integrar um framework de logs;
-- [ ] Estudar sobre Webhooks e aplicá-los no projeto;
+- [x] Estudar sobre Webhooks e aplicá-los no projeto;

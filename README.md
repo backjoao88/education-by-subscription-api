@@ -2,7 +2,7 @@
 
 <p>Plataforma de educação baseada em assinaturas, integrada ao serviço de pagamento Asaas.</p> 
 
-[![build and deploy to app service](https://github.com/backjoao88/edu-subscription/actions/workflows/build.yml/badge.svg)](https://github.com/backjoao88/edu-subscription/actions/workflows/build.yml)
+[![build and deploy to app service](https://github.com/backjoao88/education-by-subscription-api/actions/workflows/build.yml/badge.svg)](https://github.com/backjoao88/education-by-subscription-api/actions/workflows/build.yml)
 
 ## Regras de negócio
 

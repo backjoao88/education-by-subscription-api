@@ -17,7 +17,7 @@ public class CreatePlanCommandHandler : IRequestHandler<CreatePlanCommand, Resul
 
     public async Task<Result<PlanCreatedViewModel>> Handle(CreatePlanCommand request, CancellationToken cancellationToken)
     {
-        var plan = new Plan(request.Title, request.Description, request.BasePrice);
+        var plan = new Plan(request.Title, request.Description, request.BasePrice, request.AllowedCourses);
         await _unitOfWork.PlanRepository.Add(plan);
         await _unitOfWork.Complete();
         var planCreatedViewModel = new PlanCreatedViewModel(plan.Id);

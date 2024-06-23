@@ -32,7 +32,7 @@ public static class DependencyInjection
     public static IServiceCollection AddPersistence(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<AppDbContextLocalOptionsSetup>()
+            .ConfigureOptions<AppDbContextVaultOptionsSetup>()
             .AddDbContext<AppDbContext>(((provider, builder) =>
             {
                 var appDbContextOptions =
@@ -54,7 +54,7 @@ public static class DependencyInjection
     public static IServiceCollection AddJwt(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<JwtOptionLocalSetup>()
+            .ConfigureOptions<JwtOptionsVaultSetup>()
             .ConfigureOptions<JwtBearerOptionsSetup>()
             .AddScoped<IJwtProvider, JwtProvider>();
         return services;
@@ -64,7 +64,7 @@ public static class DependencyInjection
     public static IServiceCollection AddAzureStorage(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<AzureBlobStorageLocalOptionsSetup>()
+            .ConfigureOptions<AzureBlobStorageVaultOptionsSetup>()
             .AddScoped<IStorageProvider, AzureBlobStorageProvider>();
         return services;
     }
@@ -80,7 +80,7 @@ public static class DependencyInjection
     public static IServiceCollection AddAsaas(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<PaymentProviderLocalOptionsSetup>()
+            .ConfigureOptions<PaymentProviderVaultOptionsSetup>()
             .AddScoped<IPaymentProvider, AsaasProvider>()
             .AddScoped<IDefaultHttpSerializer, AsaasHttpSerializer>()
             .AddHttpClient<IDefaultHttpClient, AsaasHttpClient>((sp, client) =>

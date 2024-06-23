@@ -6,7 +6,7 @@ using MediatR;
 
 namespace EducationBySubscription.Application.Core.Courses.Commands.UpdateCourseCoverr;
 
-public class UpdateCourseCoverCommandHandler : IRequestHandler<UpdateCourseCoverCommand, Result>
+public class UpdateCourseCoverCommandHandler : IRequestHandler<UpdateCourseCoverCommand, Result<SendStorageProviderResponse>>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IStorageProvider _storageProvider;
@@ -16,14 +16,16 @@ public class UpdateCourseCoverCommandHandler : IRequestHandler<UpdateCourseCover
         _unitOfWork = unitOfWork;
         _storageProvider = storageProvider;
     }
-
-    public async Task<Result> Handle(UpdateCourseCoverCommand request, CancellationToken cancellationToken)
+    
+    public async Task<Result<SendStorageProviderResponse>> Handle(UpdateCourseCoverCommand request, CancellationToken cancellationToken)
     {
         var course = await _unitOfWork.CourseRepository.ReadById(request.IdCourse);
-        if (course is null) return Result.Fail(CourseErrors.Course.CourseNotFound);
+        if (course is null) return Result.Fail<SendStorageProviderResponse>(CourseErrors.Course.CourseNotFound);
         var memStream = new MemoryStream();
         await request.Cover.CopyToAsync(memStream);
-        await _storageProvider.Send(course.Id, memStream.ToArray());
-        return Result.Ok();
+        var response = await _storageProvider.Send(course.Id, memStream.ToArray());
+        course.UpdateCover(response.Link);
+        await _unitOfWork.Complete();
+        return Result.Ok(response);
     }
 }

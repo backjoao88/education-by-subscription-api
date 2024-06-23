@@ -4,7 +4,7 @@ namespace EducationSubscription.Core.Domain.Courses;
 
 public class Course : Entity
 {
-    public Course(string name, string description, string cover)
+    private Course(string name, string description, string cover)
     {
         Name = name;
         Description = description;
@@ -20,6 +20,7 @@ public class Course : Entity
     public static Course Create(string name, string description)
     {
         var course = new Course(name, description, "");
+        course.Lessons = new List<Lesson>();
         return course;
     }
 

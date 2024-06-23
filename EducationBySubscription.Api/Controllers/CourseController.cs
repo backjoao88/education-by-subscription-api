@@ -18,7 +18,7 @@ namespace EducationBySubscription.Api.Controllers;
 [Route("api")]
 public class CourseController : ApiController
 {
-    public CourseController(IMediator mediator)
+    public CourseController(IMediator mediator) : base()
     {
         _mediator = mediator;
     }
@@ -28,7 +28,7 @@ public class CourseController : ApiController
     [HttpPost(ApiRoutes.Course.BaseCourseLessonWithId)]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [HasPermission(EUserRole.Admin)]
+    //[HasPermission(EUserRole.Admin)]
     public async Task<IActionResult> PostCourseLesson(Guid id,
         [FromBody] CreateCourseLessonCommand createCourseLessonCommand)
     {
@@ -42,7 +42,7 @@ public class CourseController : ApiController
     [HttpPost(ApiRoutes.Course.BaseCourse)]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [HasPermission(EUserRole.Admin)]
+    //[HasPermission(EUserRole.Admin)]
     public async Task<IActionResult> PostCourse([FromBody] CreateCourseCommand createCourseCommand)
     {
         var result = await _mediator.Send(createCourseCommand);
@@ -52,7 +52,7 @@ public class CourseController : ApiController
     [HttpPut(ApiRoutes.Course.BaseCourseWithId)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [HasPermission(EUserRole.Admin)]
+    //[HasPermission(EUserRole.Admin)]
     public async Task<IActionResult> PutCourse(Guid id, [FromBody] UpdateCourseCommand updateCourseCommand)
     {
         updateCourseCommand.Id = id;
@@ -63,7 +63,7 @@ public class CourseController : ApiController
     [HttpDelete(ApiRoutes.Course.BaseCourseWithId)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [HasPermission(EUserRole.Admin)]
+    //[HasPermission(EUserRole.Admin)]
     public async Task<IActionResult> DeleteCourse(Guid id)
     {
         var result = await _mediator.Send(new DeleteCourseCommand(id));
@@ -75,13 +75,14 @@ public class CourseController : ApiController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetCourseById(Guid id)
     {
-        var result = await _mediator.Send(new GetCourseByIdQuery(id));
+        var idUser = GetAuthenticatedUserId();
+        var result = await _mediator.Send(new GetCourseByIdQuery(id, idUser));
         return result.IsSuccess ? Ok(result.Value) : NotFound(result.Error);
     }
 
     [HttpGet(ApiRoutes.Course.BaseCourse)]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    [HasPermission(EUserRole.Admin)]
+    //[HasPermission(EUserRole.Admin)]
     public async Task<IActionResult> GetAllCourses()
     {
         var view = await _mediator.Send(new GetAllCoursesQuery());
@@ -91,12 +92,12 @@ public class CourseController : ApiController
     [HttpPut(ApiRoutes.Course.BaseCourseWithIdCover)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ExtensionValidatorFilter(new[]{ ".png" })]
-    [HasPermission(EUserRole.Admin)]
+    //[HasPermission(EUserRole.Admin)]
     public async Task<IActionResult> UpdateCourseCover(Guid id, IFormCollection formCollection)
     {
         var imageFile = formCollection.Files[0];
         var result = await _mediator.Send(new UpdateCourseCoverCommand(id, imageFile.OpenReadStream()));
-        return result.IsSuccess ? Ok() : BadRequest(result.Error);
+        return result.IsSuccess ? Ok(result.Value) : BadRequest(result.Error);
     }
     
 }

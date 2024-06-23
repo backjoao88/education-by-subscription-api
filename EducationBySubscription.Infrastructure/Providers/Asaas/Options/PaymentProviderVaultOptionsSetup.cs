@@ -4,13 +4,13 @@ using Microsoft.Extensions.Options;
 
 namespace EducationBySubscription.Infrastructure.Providers.Asaas.Options;
 
-public class PaymentProviderOptionsSetup : IConfigureOptions<PaymentProviderOptions>
+public class PaymentProviderVaultOptionsSetup : IConfigureOptions<PaymentProviderOptions>
 {
     
     private readonly IServiceProvider _provider;
     private const string ApiKeySectioName = "AsaasApiKey";
     
-    public PaymentProviderOptionsSetup(IServiceProvider provider)
+    public PaymentProviderVaultOptionsSetup(IServiceProvider provider)
     {
         _provider = provider;
     }

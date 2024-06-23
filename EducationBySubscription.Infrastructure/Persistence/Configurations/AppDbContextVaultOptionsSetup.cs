@@ -8,12 +8,12 @@ namespace EducationBySubscription.Infrastructure.Persistence.Configurations;
 /// <summary>
 /// Sets up a <see cref="AppDbContextOptions"/>
 /// </summary>
-public class AppDbContextOptionsSetup : IConfigureOptions<AppDbContextOptions>
+public class AppDbContextVaultOptionsSetup : IConfigureOptions<AppDbContextOptions>
 {
     private readonly IServiceProvider _provider;
     private const string ConnectionStringSectionName = "EduSubscriptionDbConnectionString";
 
-    public AppDbContextOptionsSetup(IServiceProvider provider)
+    public AppDbContextVaultOptionsSetup(IServiceProvider provider)
     {
         _provider = provider;
     }

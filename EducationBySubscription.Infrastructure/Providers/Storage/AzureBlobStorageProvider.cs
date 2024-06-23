@@ -22,23 +22,25 @@ public class AzureBlobStorageProvider : IStorageProvider
     {
         var storageCredentials =
             new StorageSharedKeyCredential(_azureBlobStorageOptions.AccountName, _azureBlobStorageOptions.AccountKey);
-        return new BlobClient(blobUri, storageCredentials);
+        return new BlobClient(blobUri, storageCredentials, new BlobClientOptions());
     }
 
-    public async Task Send(Guid idCourse, byte[] byteChunk)
+    public async Task<SendStorageProviderResponse> Send(Guid idCourse, byte[] byteChunk)
     {
         var blobName = $"blob_{idCourse}.png";
         _logger.LogDebug(blobName);
-        Uri blobUri = new Uri("https://" +
-                              _azureBlobStorageOptions.AccountName +
-                              ".blob.core.windows.net/" +
-                              _azureBlobStorageOptions.ContainerName+
-                              "/" + blobName);
+        var uriStr = $"https://" +
+            _azureBlobStorageOptions.AccountName +
+            ".blob.core.windows.net/" +
+            _azureBlobStorageOptions.ContainerName +
+            "/" + blobName;
+        Uri blobUri = new Uri(uriStr);
         _logger.LogDebug(blobUri.ToString());
         var conn = CreateConnection(blobUri);
         _logger.LogDebug(conn.Name);
-        var response = await conn.UploadAsync(new BinaryData(byteChunk));
+        var response = await conn.UploadAsync(new BinaryData(byteChunk), overwrite:true);
         _logger.LogDebug(response.GetRawResponse().ToString());
+        return new SendStorageProviderResponse(uriStr);
     }
 
     public async Task<byte[]> Retrieve(Guid idCourse)

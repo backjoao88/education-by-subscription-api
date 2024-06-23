@@ -20,6 +20,7 @@ public class AppDbContext : DbContext
     /// <param name="options"></param>
     public AppDbContext(DbContextOptions options) : base(options) { }
 
+    
     public DbSet<Course> Courses { get; set; } = null!;
     public DbSet<Member> Members { get; set; } = null!;
     public DbSet<Plan> Plans { get; set; } = null!;

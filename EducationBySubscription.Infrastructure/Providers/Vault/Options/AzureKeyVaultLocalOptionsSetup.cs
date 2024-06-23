@@ -3,12 +3,12 @@ using Microsoft.Extensions.Options;
 
 namespace EducationBySubscription.Infrastructure.Providers.Vault.Options;
 
-public class AzureKeyVaultOptionsSetup : IConfigureOptions<AzureKeyVaultOptions>
+public class AzureKeyVaultLocalOptionsSetup : IConfigureOptions<AzureKeyVaultOptions>
 {
     private readonly IConfiguration _configuration;
     private const string VaultSectionName = "Vault:VaultUri";
     
-    public AzureKeyVaultOptionsSetup(IConfiguration configuration)
+    public AzureKeyVaultLocalOptionsSetup(IConfiguration configuration)
     {
         _configuration = configuration;
     }

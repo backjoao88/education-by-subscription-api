@@ -45,4 +45,14 @@ public class SubscriptionRepository : ISubscriptionRepository
             .Include(o => o.Plan)
             .ToListAsync();
     }
+
+    public async Task<List<Guid>> ReadCoursesByActiveMember(Guid memberId)
+    {
+        var member = await ReadActiveByMember(memberId);
+        return member
+            .Select(o => o.Plan)
+            .SelectMany(o => o.AllowedCourses)
+            .Distinct()
+            .ToList();
+    }
 }

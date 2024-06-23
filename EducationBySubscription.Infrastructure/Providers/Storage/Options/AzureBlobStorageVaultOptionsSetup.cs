@@ -4,14 +4,14 @@ using Microsoft.Extensions.Options;
 
 namespace EducationBySubscription.Infrastructure.Providers.Storage.Options;
 
-public class AzureBlobStorageOptionsSetup : IConfigureOptions<AzureBlobStorageOptions>
+public class AzureBlobStorageVaultOptionsSetup : IConfigureOptions<AzureBlobStorageOptions>
 {
     private readonly IServiceProvider _provider;
     private const string AccountNameSectioName = "EduSubscriptionStorageAccountName";
     private const string AccountKeySectioName = "EduSubscriptionStorageAccountKey";
     private const string ContainerNameSectioName = "EduSubscriptionStorageContainerName";
     
-    public AzureBlobStorageOptionsSetup(IServiceProvider provider)
+    public AzureBlobStorageVaultOptionsSetup(IServiceProvider provider)
     {
         _provider = provider;
     }

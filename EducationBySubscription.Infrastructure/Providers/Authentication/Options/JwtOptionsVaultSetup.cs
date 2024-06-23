@@ -5,14 +5,14 @@ using Microsoft.Extensions.Options;
 
 namespace EducationBySubscription.Infrastructure.Providers.Authentication.Options;
 
-public class JwtOptionsSetup : IConfigureOptions<JwtOptions>
+public class JwtOptionsVaultSetup : IConfigureOptions<JwtOptions>
 {
     private readonly IServiceProvider _provider;
     private const string IssuerNameSectionName = "JwtIssuer";
     private const string AudienceSectionName = "JwtAudience";
     private const string PrivateKeySectionName = "JwtPrivateKey";
 
-    public JwtOptionsSetup(IServiceProvider provider)
+    public JwtOptionsVaultSetup(IServiceProvider provider)
     {
         _provider = provider;
     }

@@ -5,5 +5,5 @@ Content-Type: application/json
   "firstName": "marcos",
   "lastName": "weiss",
   "email": "marcos@mail.com",
-  "documentNumber": "11154328937"
+  "documentNumber": ""
 }

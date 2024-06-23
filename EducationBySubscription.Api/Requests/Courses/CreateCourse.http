@@ -2,7 +2,7 @@
 Content-Type: application/json
 
 {
-  "name": "Compiladores",
-  "description": "Curso básico de compiladores que contempla conceitos como o de expressões regulares, árvores AST, análise semântica e linguagem de montagem."
+  "name": "Sistemas Operacionais",
+  "description": "Curso básico de sistemas operacionais que contempla conceitos básicos como o de processos e threads, gerenciamento de memória e sistemas de arquivos."
 }
 

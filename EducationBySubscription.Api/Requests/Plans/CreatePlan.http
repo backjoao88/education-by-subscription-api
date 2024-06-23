@@ -4,5 +4,6 @@ Content-Type: application/json
 {
   "title": "Gold Patron",
   "description": "You will get early access to my upcoming videos. You will also get access to all the source code used in my existing and future videos. Last but not least, you will get exclusive discounts on all of my paid courses. Thank you very much for your support!",
-  "basePrice": 57.50
+  "basePrice": 57.50,
+  "allowedCourses": ["3409947e-4b0f-476a-9212-f765f39a7240", "1e9ba73c-0faa-42c4-9434-9e714ce1e5e4"]
 }

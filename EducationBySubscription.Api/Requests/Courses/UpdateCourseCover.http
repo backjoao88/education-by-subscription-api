@@ -1,9 +1,9 @@
-﻿PUT http://localhost:8080/api/courses/397bdb77-5d42-4961-aafc-bde93acf6922/cover
+﻿PUT http://localhost:8080/api/courses/9c351e59-e06f-49d8-8965-68c28bf9764e/cover
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
 Content-Disposition: form-data; name="cover"; filename="curso.png"
 
-< C:\Users\joaob\OneDrive\Área de Trabalho\curso.png
+< C:\Users\Back\Desktop\curso.png
 
 --boundary--

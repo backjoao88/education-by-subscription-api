@@ -1,2 +1,3 @@
-﻿GET http://localhost:8080/api/courses/397bdb77-5d42-4961-aafc-bde93acf6922
+﻿GET http://localhost:8080/api/courses/3409947e-4b0f-476a-9212-f765f39a7240
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkZTY4MmFhZi1lYjY3LTRmZmQtOTVjMy00NGI0ZTc5OTU5MjgiLCJyb2xlIjoiU3R1ZGVudCIsIm5iZiI6MTcxODU0NjM4NCwiZXhwIjoxNzE4NTc1MTg0LCJpc3MiOiJlZGJ5c3ViIiwiYXVkIjoiMTIzNCJ9.Y0UjyWGnmwRN_68LQ40U7l4MsZT5-N5026m_2BDF-y7vB51iBDgTQnyHJu8H8ElCI9ln2H2pwSGUWJ48mT7tRA
 Accept: application/json

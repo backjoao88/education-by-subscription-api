@@ -17,7 +17,7 @@ public class GetAllCoursesQueryHandler : IRequestHandler<GetAllCoursesQuery, Lis
     {
         var courses = await _unitOfWork.CourseRepository.ReadAll();
         return courses
-            .Select(o => new CourseDetailedViewModel(o.Id, o.Name, o.Description, o.Lessons.Select(l => new LessonViewModel(l.Name, l.Description)).ToList()))
+            .Select(o => new CourseDetailedViewModel(o.Id, o.Name, o.Description, o.Lessons.Select(l => new LessonViewModel(l.Name, l.Description)).ToList(), o.Cover))
             .ToList();
     }
 }

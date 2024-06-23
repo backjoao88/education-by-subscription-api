@@ -7,4 +7,5 @@ public interface ISubscriptionRepository : IWritableRepository<Subscription>, IR
     IReadableRepository<Subscription>, IDeletableRepository
 {
     public Task<List<Subscription>> ReadActiveByMember(Guid memberId);
+    public Task<List<Guid>> ReadCoursesByActiveMember(Guid memberId);
 }

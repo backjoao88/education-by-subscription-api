@@ -1,12 +1,3 @@
-# Index
-
-* [Description](#description)
-* [Badges](#badges)
-* [Stack and concepts applied](#stack-and-concepts-applied)
-* [Use cases and requirements](#use-cases-and-requirements)
-* [Running](#running)
-* [Contributions](#contributions)
-
 ## Description
 
 Education platform based on subscriptions plans written in .NET that uses [Asaas](https://www.asaas.com), a payment plataform widely used in Brazil.

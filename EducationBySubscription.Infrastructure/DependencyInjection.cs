@@ -32,13 +32,13 @@ public static class DependencyInjection
     public static IServiceCollection AddPersistence(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<AppDbContextOptionsSetup>()
+            .ConfigureOptions<AppDbContextLocalOptionsSetup>()
             .AddDbContext<AppDbContext>(((provider, builder) =>
             {
                 var appDbContextOptions =
                     provider.GetService(typeof(IOptions<AppDbContextOptions>)) as IOptions<AppDbContextOptions>;
                 if (appDbContextOptions is null) return;
-                builder.UseSqlServer(appDbContextOptions.Value.ConnectionString);
+                builder.UseSqlServer("Server=DESKTOP-IVUG4V3\\SQLEXPRESS;User=sa;Password=joao#123;TrustServerCertificate=true;");
                 builder.AddInterceptors(new ConvertEventsInterceptor());
             }))
             .AddScoped<IUnitOfWork, AppUnitOfWork>()
@@ -54,7 +54,7 @@ public static class DependencyInjection
     public static IServiceCollection AddJwt(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<JwtOptionsSetup>()
+            .ConfigureOptions<JwtOptionLocalSetup>()
             .ConfigureOptions<JwtBearerOptionsSetup>()
             .AddScoped<IJwtProvider, JwtProvider>();
         return services;
@@ -64,7 +64,7 @@ public static class DependencyInjection
     public static IServiceCollection AddAzureStorage(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<AzureBlobStorageOptionsSetup>()
+            .ConfigureOptions<AzureBlobStorageLocalOptionsSetup>()
             .AddScoped<IStorageProvider, AzureBlobStorageProvider>();
         return services;
     }
@@ -72,7 +72,7 @@ public static class DependencyInjection
     public static IServiceCollection AddAzureKeyVault(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<AzureKeyVaultOptionsSetup>()
+            .ConfigureOptions<AzureKeyVaultLocalOptionsSetup>()
             .AddScoped<IVaultProvider, AzureKeyVaultProvider>();
         return services;
     }
@@ -80,7 +80,7 @@ public static class DependencyInjection
     public static IServiceCollection AddAsaas(this IServiceCollection services)
     {
         services
-            .ConfigureOptions<PaymentProviderOptionsSetup>()
+            .ConfigureOptions<PaymentProviderLocalOptionsSetup>()
             .AddScoped<IPaymentProvider, AsaasProvider>()
             .AddScoped<IDefaultHttpSerializer, AsaasHttpSerializer>()
             .AddHttpClient<IDefaultHttpClient, AsaasHttpClient>((sp, client) =>

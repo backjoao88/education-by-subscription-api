@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationBySubscription.Inf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationBySubscription.Application", "EducationBySubscription.Application\EducationBySubscription.Application.csproj", "{A21B7C1D-F5DE-4398-90BE-2BAA727CC1C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationBySubscription.Tests", "EducationBySubscription.Tests\EducationBySubscription.Tests.csproj", "{ABF7F70F-C729-4E31-A2FA-D43272E95C6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{A21B7C1D-F5DE-4398-90BE-2BAA727CC1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A21B7C1D-F5DE-4398-90BE-2BAA727CC1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A21B7C1D-F5DE-4398-90BE-2BAA727CC1C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABF7F70F-C729-4E31-A2FA-D43272E95C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF7F70F-C729-4E31-A2FA-D43272E95C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF7F70F-C729-4E31-A2FA-D43272E95C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF7F70F-C729-4E31-A2FA-D43272E95C6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

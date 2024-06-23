@@ -135,7 +135,7 @@ dotnet watch
 
 You can check the available requests at `EducationBySubscription\Api\Requests` folder.
 
-#### Contributions
+## Contributions
 
 You can contribute to this project, send a pull request and i'll be happily evaluated. 
 
